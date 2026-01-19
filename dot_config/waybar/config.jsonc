@@ -1,0 +1,91 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+    "height": 10,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/playerctl"],
+    "modules-right": ["backlight", "pulseaudio", "clock"],
+    "custom/cava_test": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/sound/expand cava-icon"
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate",
+      "all-outputs": true
+    },
+    "clock": {
+      "format": "{:%H:%M}",
+      "format-alt": "<span>{:%H:%M %a %d-%m-%y}</span>",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "custom/cava": {
+      "format": "<span color='#f7768e'></span> {volume}%",
+      "exec": "sh ~/.config/polybar/scripts/cava.sh" ,
+      "label": "%output%"
+    },
+    "backlight": {
+      "device": "amdgpu_b10",
+      "format": "<span color='#d9b172'>{icon}</span> {percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "custom/sound": {
+      "format": "<span color='#5d7'> </span>{}",
+      "exec": "custom-alsa.sh"
+    },
+    "network": {
+      "interface": "wlo1",
+      "format": "{ifname}",
+      "format-wifi": "<span color='#90cdfa'> </span>{essid}({signalStrength}%)",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-disconnected": "<span color='#ff005f'>󰖪 </span>No Network",
+      "on-click": "kitty nmtui"
+    },
+    "battery": {
+      "format": "<span color='#a8cd76'>{icon}</span> {capacity}%",
+      "format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+      "format-charging": "<span color='#a8cd76'></span> {capacity}%"
+    },
+    "pulseaudio": {
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "format": "<span color='#f7768e'></span> {volume}%",
+      "format-muted": "<span color='#f7768e'>ﱝ</span>",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["奔", "墳"]
+      },
+      "on-click-right" : "pavucontrol"
+    },
+    "tray": {
+      "icon-size": 20,
+      "reverse-direction": true,
+      "spacing": 6
+    },
+    "cpu": {
+      "format": "<span foreground='#ff005f'></span>  {usage}%"
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "<span foreground='#5d73ca'></span> {temperatureC}°C"
+    },
+    "custom/playerctl": {
+      "format": "{icon}  <span>{}</span>",
+      "return-type": "json",
+      "max-length": 55,
+      "exec": "playerctl -a metadata --format '{\"text\": \"  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-click-middle": "playerctl previous",
+      "on-click": "playerctl play-pause",
+      "on-click-right": "playerctl next",
+      "format-icons": {
+        "Paused": "<span foreground='#bb9af7'></span>",
+        "Playing": "<span foreground='#bb9af7'></span>"
+      }
+    }
+
+}
+

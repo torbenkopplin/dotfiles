@@ -1,0 +1,46 @@
+* {
+    font-family: "Hack", monospace;
+}
+
+window {
+    background-color: --wofi-color2;
+}
+
+#input {
+    margin: 5px;
+    border-radius: 0px;
+    border: none;
+    background-color: --wofi-color2;
+    color: --wofi-color6;
+}
+
+#inner-box {
+    background-color: --wofi-color5;
+}
+
+#outer-box {
+    margin: 2px;
+    padding: 10px;
+    background-color: --wofi-color5;
+}
+
+#scroll {
+    margin: 5px;
+}
+
+#text {
+    padding: 4px;
+    color: --wofi-color6;
+}
+
+#entry:nth-child(even){
+    background-color: --wofi-color4;
+}
+
+#entry:selected {
+    background-color: --wofi-color1;
+}
+
+#text:selected {
+    background: transparent;
+}

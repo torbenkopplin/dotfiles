@@ -1,0 +1,40 @@
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 14px;
+}
+
+window {
+  background-color: --wofi-color0;
+  border: 2px solid --wofi-color2;
+  border-radius: 12px;
+}
+
+#input {
+  margin: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: --wofi-color1;
+  color: --wofi-color3;
+}
+
+#inner-box {
+  margin: 8px;
+}
+
+#entry {
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+#entry:selected {
+  background-color: --wofi-color5;
+  color: --wofi-color0;
+}
+
+#text {
+  color: --wofi-color3;
+}
+
+#text:selected {
+  color: --wofi-color0;
+}
