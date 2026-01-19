@@ -1,5 +1,5 @@
 *.log
 *.cache
-./cache
+.cache/
 .undodir/
-Session.vim
+**/Session.vim
